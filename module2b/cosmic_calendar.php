@@ -37,7 +37,8 @@
                 for ($x = $nameLength; $x <= $dayOfYear; $x++){
                     $cssClass = "day-box";
                     $addClassSwitch = false;
-                
+                    $addedClass = ' ';
+
                     //find if divisible by using modulus operator, if its zero it is divisible
                     if ($x % $nameLength == 0 && $x % $month == 0) {
                         $addClassSwitch = true;
