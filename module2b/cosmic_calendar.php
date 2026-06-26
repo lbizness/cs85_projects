@@ -32,25 +32,38 @@
                 $dateTimeString = $data->dateTime;
                 $date = new DateTime($dateTimeString);
                 $dayOfYear = (int)$date->format('z') + 1;
-                
-                for ($x = $nameLength; $x <= $dayOfYear; $x++){
-                    
+                $month = $data->month;
 
+                for ($x = $nameLength; $x <= $dayOfYear; $x++){
+                    $cssClass = "day-box";
+                    $addClassSwitch = false;
+                
+                    //find if divisible by using modulus operator, if its zero it is divisible
+                    if ($x % $nameLength == 0 && $x % $month == 0) {
+                        $addClassSwitch = true;
+                        $addedClass = "cosmic-both";
+                    }
+                    else if ($x % $nameLength == 0){
+                        $addClassSwitch = true;
+                        $addedClass ="cosmic-name";
+                    }
+                    else if ($x % $month == 0){
+                        $addClassSwitch = true;    
+                        $addedClass = "cosmic-month";
+                    }
+
+                    if ($addClassSwitch == true)
+                        echo "<div class='$cssClass $addedClass'>$x</div>";
+                    else
+                        echo "<div class='$cssClass'>$x</div>";
                 }
 
                 /*
-                // Extract the date data from the response and determine $dayOfYear
-                $dateTimeString = $data->dateTime;
-                $date = new DateTime($dateTimeString);
-                $dayOfYear = (int)$date->format('z') + 1;
-                $month = $data->month;
-                */
-                echo "Today is day number: " . $dayOfYear; 
-                //echo "<br>"; echo "The current month is: " . $month;
-
-                /*
                 MY DEBUGGING LOG:
-
+                Problem: I was struggling with adding in the CSS with my conditional statements. The page did not appear correct.
+                Solution: By reviewing some CSS material and working through the logic, I figured out a way to display the 
+                classes in a way that made sense. I added a boolean to switch between if there was an added class or not and then made
+                another if statement.
 
                 */
             ?>
