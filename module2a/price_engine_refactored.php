@@ -54,17 +54,23 @@
             if ($isCustomized == true){
                 $finalPrice = $finalPrice + 5.00;
                 $details .= "<li>Customization Upcharge: <span>+$5.00</span></li>";
-                if ($size == 'XL'){
-                    $finalPrice = $finalPrice + 3.00;
-                    $details .= "<li>Size (XL) Handling Fee: <span>+$3.00</span></li>";
-                }
+            }
+            if ($isCustomized == true && $size == 'XL'){
+                $finalPrice = $finalPrice + 3.00;
+                $details .= "<li>Size (XL) Handling Fee: <span>+$3.00</span></li>";
+                
             }
             
-            //Reflection:
-
             /*
             MY DEBUGGING LOG: 
-            
+            Problem: 
+            In Part B, I was challenged to rethink through the problem and come up with more efficient
+            ways to rewrite the problem.
+
+            Solution:
+            I found that by aiming to reduce redundency in my code I was able to figure out where I could 
+            improve. I added in a compoud operator for the color, and made an elseif for the size. I did
+            find that adding a nested if/else statement into the color made sense to me. 
 
             */
 
