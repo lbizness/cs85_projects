@@ -20,7 +20,39 @@
         <h1>Cosmic Calendar</h1>
         <div class="calendar-grid">
             <?php
-                //setup api here
+                $firstName = 'Luke';
+                
+                //fetch json and convert json into php object
+                $jsonString = file_get_contents('https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles');
+                $data = json_decode($jsonString);
+
+                $nameLength = strlen($firstName);
+
+                //extract datetime + day of year
+                $dateTimeString = $data->dateTime;
+                $date = new DateTime($dateTimeString);
+                $dayOfYear = (int)$date->format('z') + 1;
+                
+                for ($x = $nameLength; $x <= $dayOfYear; $x++){
+                    
+
+                }
+
+                /*
+                // Extract the date data from the response and determine $dayOfYear
+                $dateTimeString = $data->dateTime;
+                $date = new DateTime($dateTimeString);
+                $dayOfYear = (int)$date->format('z') + 1;
+                $month = $data->month;
+                */
+                echo "Today is day number: " . $dayOfYear; 
+                //echo "<br>"; echo "The current month is: " . $month;
+
+                /*
+                MY DEBUGGING LOG:
+
+
+                */
             ?>
         </div>
     </div>
