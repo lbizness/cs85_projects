@@ -1,5 +1,3 @@
-//GITHUB LINK: https://github.com/lbizness/cs85_projects/tree/main/cs85-module3a-reviewform 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,8 @@
 </head>
 <body>
 <?php
+//GITHUB LINK: https://github.com/lbizness/cs85_projects/tree/main/cs85-module3a-reviewform 
+
 function validateInput($data, $fieldName) { 
     //this function takes the input the user gives and ensures it is filled and cleans it up if the input is filled
     global $errorCount; //Keeps track of the number of errors 
